@@ -1,5 +1,7 @@
-import React from "react"
+import React from 'react';
+import StatementExplorer from '../components/finance/statement_explorer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Home() {
-  return <div>Hello world!</div>
+export default function Index({}) {
+    return <StatementExplorer />;
 }
