@@ -14,9 +14,9 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Install Gatsby CLI
-        run: npm install -g gatsby-cli@2.12.34
+        run: npm install gatsby-cli@3.3.0 
       - name: Build
-        run: gatsby build
+        run: yarn build
       - name: Verify build
         run: ls -la public
       - uses: FirebaseExtended/action-hosting-deploy@v0
