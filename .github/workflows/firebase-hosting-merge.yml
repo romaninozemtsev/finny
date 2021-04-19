@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Project Dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
       - name: Install Gatsby CLI
         run: npm install -g gatsby-cli@2.12.34
       - name: Build
