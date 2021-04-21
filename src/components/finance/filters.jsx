@@ -1,5 +1,5 @@
 import React from 'react'
-import Btn, {Chip}  from './btn'
+import {Chip}  from './btn'
 
 export default function Filters({filters, onFilterRemove}) {
   return (
