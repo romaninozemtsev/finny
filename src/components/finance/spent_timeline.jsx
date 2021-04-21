@@ -124,8 +124,8 @@ export default class Timeline extends React.Component{
     }
 
     render() {
-        return <>
+        return <div><h4>Timeline</h4>
             <Bar data={this.state.data} options={options} onElementsClick={this.onBarClick} />
-        </>
+        </div>
     }
 }

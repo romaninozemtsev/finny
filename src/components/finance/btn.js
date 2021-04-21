@@ -2,7 +2,7 @@ import React from 'react';
 import getMerchantIcon from './utils/icons';
 
 export default function Btn({onClick, children}) {
-    return <button className="font-bold py-2 px-4 rounded bg-blue-500 text-white"
+    return <button className="font-bold py-1 px-2 rounded bg-blue-500 text-white"
     onClick={onClick}>{children}</button>
 }
 

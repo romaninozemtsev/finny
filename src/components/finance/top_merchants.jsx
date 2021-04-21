@@ -27,7 +27,9 @@ export default function TopMerchantsTable({data, onMerchantSelected}) {
     // sorting descending
     groupedAsArray.sort((x, y) =>  y.amount - x.amount);
 
-        return <Table striped bordered hover>
+        return <div>
+            <h4>Top merchants</h4>
+            <Table striped bordered hover>
         <thead><tr>
                 <th>
                     merchant
@@ -54,4 +56,5 @@ export default function TopMerchantsTable({data, onMerchantSelected}) {
         </tr>)}
         </tbody>
     </Table>
+    </div>
 }

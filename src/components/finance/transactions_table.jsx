@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import Table from 'react-bootstrap/Table';
 
 export default function TxTable({data}) {
-    return <Table striped bordered hover>
+    return <div>
+        <h4>
+            All transactions
+        </h4>
+        <Table striped bordered hover>
         <thead><tr>
                 <th>
                     description
@@ -30,4 +34,5 @@ export default function TxTable({data}) {
         </tr>)}
         </tbody>
     </Table>
+    </div>
 }

@@ -23,7 +23,9 @@ export default function Files({fullData}) {
         }
     }
 
-    return <ul>
+    return <div>
+        <h4>Files uploaded</h4>
+        <ul>
         {fullData.map(f => <li>
             <div class="flex flex-1 flex-column">
                 <div class="flex flex-row">
@@ -36,4 +38,5 @@ export default function Files({fullData}) {
              {computeName(f)}
         </li>)}
     </ul>
+    </div>
 }

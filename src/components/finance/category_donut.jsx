@@ -139,9 +139,10 @@ export default class Categories extends React.Component {
     }
  
     render() {
-        return <>
-            <HorizontalBar data={this.dataFull} options={options} onElementsClick={this.onElementClick}/>
-            {/* <TxTable data={this.state.selected_txn}/> */}
-            </>
+        return <div>
+            <h4>Spending categories</h4>
+        <HorizontalBar data={this.dataFull} options={options} onElementsClick={this.onElementClick}/>
+        {/* <TxTable data={this.state.selected_txn}/> */}
+        </div>
     }
 }

@@ -305,6 +305,24 @@ function inferFileProps(fields, data) {
     return {bank, file_type, minDate, maxDate, totalSpent};
 }
 
+export function processFileContent(fileContent) {
+    let csvDoc = fileContent;
+    let lines = csvDoc.split('\n');
+    
+    // parsing BofA checking format.
+    if (lines[1].includes('Beginning balance')) {
+        //console.log(lines.slice(6));
+        lines = lines.slice(6);
+    }
+    lines = lines.filter(x => !!x);
+    csvDoc = lines.join("\n");
+    const results = Papa.parse(csvDoc, {header: true});
+    const processedData = results.data.map(preProcess);
+    const fileProps = inferFileProps(results.meta.fields, processedData);
+    
+    return {results: processedData, ...fileProps};
+}
+
 export function processDropFile(file) {
     const name = file.name;
     
@@ -314,22 +332,8 @@ export function processDropFile(file) {
         reader.onabort = () => console.log('file reading was aborted')
         reader.onerror = () => console.log('file reading has failed')
         reader.onload = () => {
-        // Do whatever you want with the file contents
-            let csvDoc = reader.result
-            let lines = csvDoc.split('\n');
-            
-            // parsing BofA checking format.
-            if (lines[1].includes('Beginning balance')) {
-                //console.log(lines.slice(6));
-                lines = lines.slice(6);
-            }
-            lines = lines.filter(x => !!x);
-            csvDoc = lines.join("\n");
-            const results = Papa.parse(csvDoc, {header: true});
-            const processedData = results.data.map(preProcess);
-            const fileProps = inferFileProps(results.meta.fields, processedData);
-            
-            resolve({name, results: processedData, ...fileProps});
+            const fileContentObj = processFileContent(reader.result);
+            resolve({name, ...fileContentObj});
         }
         reader.readAsText(file, 'utf-8');
         
