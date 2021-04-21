@@ -1,11 +1,11 @@
 ## How to use
 
-1. go to : TBD website
-2. drop CSV file.
-3. start exploring.
+1. try https://beta.finnyapp.com/
+2. drop your credit card statement CSV file or click "try sample"
+3. start exploring your spending
 
 
-## Contribue uncategorized transactions
+## Contribute new rules for categories or merchants 
 TBD. for now update files in the `src/components/configs`
 
 
@@ -40,4 +40,9 @@ TBD. for now update files in the `src/components/configs`
 
 ## 💫 Deploy
 
-Deployment happens automatically after each commit into Netlify or Firebase.
+Deployment to Firebase static hosting happens automatically after each commit using Github actions.
+
+
+## Testing
+
+None so far.
